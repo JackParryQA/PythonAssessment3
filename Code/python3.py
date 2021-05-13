@@ -34,7 +34,18 @@
 	# Use help(str) on your CLI for more information.
 
 def one(input):
-	return "null"
+	l = input.split(',')
+	x = list()
+
+	for i in l:
+		if int(i)%2!=0:
+			x.append(i)
+
+	if len(x)==0:
+		x.append('null')
+
+	return ','.join(x)
+
 
 	# <QUESTION 2>
 
@@ -52,7 +63,15 @@ def one(input):
 	# How did we check if an entry was NOT IN a list?
 
 def two(input):
-	return []
+	l=list()
+
+	for i in input:
+		if len(l)<1:
+			l.append(i)
+		elif i not in l:
+			l.append(i)
+
+	return l
 
 	# <QUESTION 3>
 
@@ -68,7 +87,13 @@ def two(input):
 	# How do we choose only the odd numbers when using range()?
 
 def three(input):
-	return ""
+	l=list()
+
+	for i in range(len(input)):
+		if i%2!=0:
+			l.append(input[i])
+
+	return "".join(l)
 
 	# <QUESTION 4>
 
@@ -87,7 +112,14 @@ def three(input):
 	# What function do we use to get a list from a string? Use help(str) on your CLI for more information.
 
 def four(arg1):
-	return 0
+	s=arg1.lower()
+	s=s.split()
+	count=0
+	for i in s:
+		if i=='am':
+			count+=1
+
+	return count
 
 	# <QUESTION 5>
 
@@ -115,8 +147,28 @@ def four(arg1):
 	# Think about maybe nesting 'if statements' and/or 'for loops'.
 
 def five(input):
-	return False
+	numbers='0123456789'
+	ccnum=input
+	for i in input:
+		if i not in numbers:
+			ccnum=input.split('-')
+			break
+	
+	ccnum=''.join(ccnum)
+	print(ccnum[0])
+	if ccnum[0]==str(4) or ccnum[0]==str(5) or ccnum[0]==str(6):
+		if len(ccnum)==16:
+			for i in range(16):
+				if ccnum[i] not in numbers:
+					return False
 
+				if i<=14:
+					if (ccnum[i]==ccnum[i+1]) and (ccnum[i]==ccnum[i+2]) and (ccnum[i]==ccnum[i+3]):
+						return False
+			return True
+
+
+	return False
 	# <QUESTION 6>
 
     # Given an email address person@company.com, and a parameter "person" or "company",
@@ -133,7 +185,15 @@ def five(input):
 	# How can you split the email address up? Use help(str) on your CLI for more information.
 
 def six(email, parameter):
-	return ""
+	email=email.lower()
+	email=email.split('@')
+
+	if parameter=='person':
+		return email[0]
+	elif parameter=='company':
+		email[1]=email[1].split('.')
+		return email[1][0]
+
 
 	# <QUESTION 7>
 
@@ -150,6 +210,9 @@ def six(email, parameter):
 	# Try using nested for loops and keep track of the longest block.
     
 def seven(input):
+
+	for
+
 	return -1
 
 	# <QUESTION 8>
